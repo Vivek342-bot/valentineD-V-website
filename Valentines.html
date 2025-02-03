@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Say Yes or No!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      background-image: url('https://media.giphy.com/media/ftvFqtwF3t6Rm/giphy.gif'); /* Teddy Bear GIF */
+      background-size: cover;
+      color: white;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+    }
+    .question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    .yes-btn {
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+    }
+    .no-btn {
+      background-color: #ff6347;
+      color: white;
+      font-weight: bold;
+    }
+    .no-btn.grow {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="question" class="question">Will you be mine forever, babe?</div>
+    <button id="yes-btn" class="yes-btn">Yes</button>
+    <button id="no-btn" class="no-btn">No</button>
+  </div>
+
+  <script>
+    let noClicks = 0;
+    const questionText = [
+      "If u say no again no dogs bae",
+      "Baee cmonn, iluvvyouuu🥺",
+      "For Daksh and Reeyan bae cmonn🥺🙏🏽",
+      "Im gon bomb ur wedding if u aint tryna be mine😡💣",
+      "Dont do this to me bae😭😔...."
+    ];
+    
+    const yesMessage = `YAYYYYY!! I KNEW YOU WOULD SAY YESSS, bae dont worry 😤 ill be a GREAT JIJU to daksh and reeyan and ill make sure i take care of u and ur family baee😘. We'll get you nice dresses your old money house and i promise to read books with you late at night and make you your cravings if your craving anything in the middle of the night, ill even make sure to put your needs first, and yes we'll get us ur fav dogs aswell. YIPPPPEEEEE WE'RE VALENTINE BUDDYS NOW🥳🥳`;
+
+    const questionElem = document.getElementById('question');
+    const yesBtn = document.getElementById('yes-btn');
+    const noBtn = document.getElementById('no-btn');
+
+    yesBtn.addEventListener('click', () => {
+      questionElem.textContent = yesMessage;
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    });
+
+    noBtn.addEventListener('click', () => {
+      if (noClicks < 4) {
+        questionElem.textContent = questionText[noClicks];
+        noClicks++;
+        noBtn.classList.add('grow');
+      } else {
+        questionElem.textContent = 'Fine';
+        noBtn.textContent = 'Fine';
+      }
+    });
+  </script>
+
+</body>
+</html>
